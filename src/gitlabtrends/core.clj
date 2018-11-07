@@ -59,7 +59,9 @@
     {:get
      {:response
       (let [data         (generate-trends)
-            indexed-data (map #(assoc % :rank %2)
+            total        (reduce + (map #(:count %) data))
+            indexed-data (map #(assoc % :rank %2
+                                      :percentage-share (int (* (/ (:count %1) total) 100)))
                               data (range 1 (+ 1 (count data))))]
         (sp/render-file "html/home.html" {:data indexed-data}))}}
     :produces [{:media-type #{"text/html"}}]}))
@@ -83,4 +85,3 @@
   (start-server))
 
 (-main)
-
