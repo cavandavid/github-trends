@@ -1,10 +1,6 @@
-# gitlabtrends
+# github-trends
 
-A Clojure library designed to ... well, that part is up to you.
-
-## Usage
-
-FIXME
+A Clojure program designed to get information on most popular libraries on github since last month
 
 ## License
 
